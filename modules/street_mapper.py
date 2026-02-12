@@ -162,11 +162,6 @@ class StreetMapper:
                         # Extract Lingkungan from nmsls
                         nmsls_val = boundary['nmsls']
                         
-                        # FORMATTING FIX: Convert 3-digit RT (e.g., RT 001) to 2-digit RT (e.g., RT 01)
-                        # This follows user request for 2-digit RT format in Excel/UI
-                        import re
-                        nmsls_val = re.sub(r'RT\s+0+(\d{2})', r'RT \1', nmsls_val)
-                        
                         if 'LINGKUNGAN' in nmsls_val:
                             parts = nmsls_val.split('LINGKUNGAN', 1)
                             lingk_name = parts[1].strip() if len(parts) > 1 else nmsls_val
