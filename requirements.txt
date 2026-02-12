@@ -1,0 +1,21 @@
+streamlit
+earthengine-api
+geemap
+folium
+streamlit-folium
+geopandas
+pandas
+plotly
+openpyxl
+shapely
+gspread
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
+
+# AI Dependencies
+transformers
+torch
+torchvision
+Pillow
+numpy
