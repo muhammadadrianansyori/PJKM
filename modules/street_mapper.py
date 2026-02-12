@@ -159,20 +159,19 @@ class StreetMapper:
                     if hasattr(intersection, 'length') and intersection.length > 0:
                         coverage_pct = (intersection.length / street_length) * 100
                         
-                # Baris 162 - 175
-                # Extract Lingkungan from nmsls
-                nmsls_val = boundary['nmsls']
-                
-                # FORMATTING FIX: Mengubah 3-digit RT (misal: RT 001) menjadi 2-digit RT (misal: RT 01)
-                # Ini mengikuti permintaan user agar di Excel/UI hanya muncul 2 digit
-                import re
-                nmsls_val = re.sub(r'RT\s+0+(\d{2})', r'RT \1', nmsls_val)
-                
-                if 'LINGKUNGAN' in nmsls_val:
-                    parts = nmsls_val.split('LINGKUNGAN', 1)
-                    lingk_name = parts[1].strip() if len(parts) > 1 else nmsls_val
-                else:
-                    lingk_name = nmsls_val
+                        # Extract Lingkungan from nmsls
+                        nmsls_val = boundary['nmsls']
+                        
+                        # FORMATTING FIX: Convert 3-digit RT (e.g., RT 001) to 2-digit RT (e.g., RT 01)
+                        # This follows user request for 2-digit RT format in Excel/UI
+                        import re
+                        nmsls_val = re.sub(r'RT\s+0+(\d{2})', r'RT \1', nmsls_val)
+                        
+                        if 'LINGKUNGAN' in nmsls_val:
+                            parts = nmsls_val.split('LINGKUNGAN', 1)
+                            lingk_name = parts[1].strip() if len(parts) > 1 else nmsls_val
+                        else:
+                            lingk_name = nmsls_val
                             
                         intersections.append({
                             'nmsls': nmsls_val,
@@ -283,4 +282,3 @@ class StreetMapper:
             output_path: Path to save Excel file
         """
         df.to_excel(output_path, index=False, sheet_name='Data Jalan')
-
