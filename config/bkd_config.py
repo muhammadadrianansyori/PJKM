@@ -208,5 +208,6 @@ BOUNDARY_STYLES = {
 }
 
 # Path to GeoJSON boundary data
-BOUNDARY_GEOJSON_PATH = 'd:/bps/5271sls.geojson'
+BOUNDARY_GEOJSON_PATH = '5271sls.geojson'
+
 
