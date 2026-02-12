@@ -54,7 +54,6 @@ st.markdown("""
 st.markdown("""
 <div class="main-header">
     <h1>🛣️ Sistem Pemetaan Jalan & Gang</h1>
-    <p>Badan Keuangan Daerah Kota Mataram | Standalone Version</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -164,3 +163,4 @@ try:
 
 except Exception as e:
     st.error(f"Inisialisasi Gagal: {e}")
+
